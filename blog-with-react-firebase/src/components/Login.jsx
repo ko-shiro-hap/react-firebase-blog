@@ -18,7 +18,12 @@ const Login = ({ setIsAuth }) => {
   return (
     <div>
       <p>ログインして始める</p>
-      <button onClick={loginInWithGoogle}>Googleでログイン</button>
+      <button
+        onClick={loginInWithGoogle}
+        className="border-blue-400 border px-2 rounded hover:bg-blue-300"
+      >
+        Googleでログイン
+      </button>
     </div>
   );
 };

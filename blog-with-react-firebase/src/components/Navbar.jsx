@@ -7,21 +7,31 @@ import {
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+const Navbar = ({ isAuth }) => {
   return (
     <nav className="flex justify-center items-center h-12 bg-yellow-600 gap-11 text-white">
       <Link to="/" className="hover:text-blue-400">
         <FontAwesomeIcon icon={faHouse} className="mr-1" />
         ホーム
       </Link>
-      <Link to="/createpost" className="hover:text-blue-400">
-        <FontAwesomeIcon icon={faFilePen} className="mr-1" />
-        記事投稿
-      </Link>
-      <Link to="/login" className="hover:text-blue-400">
-        <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-1" />
-        ログイン
-      </Link>
+
+      {!isAuth ? (
+        <Link to="/login" className="hover:text-blue-400">
+          <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-1" />
+          ログイン
+        </Link>
+      ) : (
+        <>
+          <Link to="/createpost" className="hover:text-blue-400">
+            <FontAwesomeIcon icon={faFilePen} className="mr-1" />
+            記事投稿
+          </Link>
+          <Link to="/logout" className="hover:text-blue-400">
+            <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-1" />
+            ログアウト
+          </Link>
+        </>
+      )}
     </nav>
   );
 };

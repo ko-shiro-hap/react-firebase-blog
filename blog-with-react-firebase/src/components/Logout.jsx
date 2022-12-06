@@ -18,7 +18,12 @@ const Logout = ({ setIsAuth }) => {
   return (
     <div>
       <p>ログアウトする</p>
-      <button onClick={logout}>ログアウト</button>
+      <button
+        onClick={logout}
+        className="border-blue-400 border px-2 rounded hover:bg-blue-300"
+      >
+        ログアウト
+      </button>
     </div>
   );
 };
