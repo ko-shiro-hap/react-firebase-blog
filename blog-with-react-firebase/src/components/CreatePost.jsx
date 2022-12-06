@@ -30,8 +30,8 @@ const CreatePost = ({ isAuth }) => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="bg-white flex rounded-lg flex-col justify-center h-96 w-96 gap-2.5 p-10 shadow-xl">
+    <div className="flex items-center justify-center">
+      <div className="mt-20 bg-white flex rounded-lg flex-col justify-center container w-full gap-2.5 p-10 shadow-xl">
         <h1 className="text-2xl font-bold">記事を投稿する</h1>
         <div>
           <div className="text-lg font-medium">タイトル</div>
