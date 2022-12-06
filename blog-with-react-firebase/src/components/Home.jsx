@@ -1,8 +1,8 @@
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 
-const Home = () => {
+const Home = (isAuth) => {
   const [postList, setPostList] = useState([]);
 
   useEffect(() => {
@@ -37,12 +37,16 @@ const Home = () => {
             <div className="mt-5">{post.postsText}</div>
             <div className="flex justify-between mt-5 items-center">
               <h3 className="font-bold">{post.author.username}</h3>
-              <button
-                className="px-4 py-1 border-none bg-red-500 text-white hover:bg-red-700 rounded"
-                onClick={() => handleDelete(post.id)}
-              >
-                削除
-              </button>
+
+              {post.author.id ===
+                (auth.currentUser ? auth.currentUser.uid : null) && (
+                <button
+                  className="px-4 py-1 border-none bg-red-500 text-white hover:bg-red-700 rounded"
+                  onClick={() => handleDelete(post.id)}
+                >
+                  削除
+                </button>
+              )}
             </div>
           </div>
         );

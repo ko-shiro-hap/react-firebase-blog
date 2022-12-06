@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Navbar isAuth={isAuth} />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home isAuth={isAuth} />}></Route>
         <Route
           path="/createpost"
           element={<CreatePost isAuth={isAuth} />}
