@@ -14,10 +14,6 @@ const Navbar = ({ isAuth }) => {
         <FontAwesomeIcon icon={faHouse} className="mr-1" />
         ホーム
       </Link>
-      <Link to="/createpost" className="hover:text-blue-400">
-        <FontAwesomeIcon icon={faFilePen} className="mr-1" />
-        記事投稿
-      </Link>
 
       {!isAuth ? (
         <Link to="/login" className="hover:text-blue-400">
@@ -25,10 +21,16 @@ const Navbar = ({ isAuth }) => {
           ログイン
         </Link>
       ) : (
-        <Link to="/logout" className="hover:text-blue-400">
-          <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-1" />
-          ログアウト
-        </Link>
+        <>
+          <Link to="/createpost" className="hover:text-blue-400">
+            <FontAwesomeIcon icon={faFilePen} className="mr-1" />
+            記事投稿
+          </Link>
+          <Link to="/logout" className="hover:text-blue-400">
+            <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-1" />
+            ログアウト
+          </Link>
+        </>
       )}
     </nav>
   );
